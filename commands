@@ -85,6 +85,8 @@ case "$1" in
     _uuid=$(uuid)
 
     mkdir -m 777 -p "$HOME/data/$_uuid"
+    mkdir -m 777 -p "$HOME/data/$_uuid/staticfiles"
+    setfacl -dm u::rwx,g::rwx,o::rwx "$HOME/data/$_uuid/staticfiles"
 
     echo $HOME/data/$_uuid:$_container_path >> "$HOME/volumes_$APP"
 
